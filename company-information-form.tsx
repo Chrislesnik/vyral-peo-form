@@ -45,9 +45,14 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
           <Select
             className="col-span-12 md:col-span-6"
             items={companyTypes}
-            label="Company Type"
+            label={
+              <span>
+                Company Type <span className="text-red-500">*</span>
+              </span>
+            }
             name="company-type"
             placeholder="C Corporation"
+            isRequired
             {...selectProps}
           >
             {(companyType) => <SelectItem key={companyType.value}>{companyType.title}</SelectItem>}
@@ -56,9 +61,14 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
           <Select
             className="col-span-12 md:col-span-6"
             items={states}
-            label="Registration State"
+            label={
+              <span>
+                Registration State <span className="text-red-500">*</span>
+              </span>
+            }
             name="registration-state"
             placeholder="Delaware"
+            isRequired
             {...selectProps}
           >
             {(registrationState) => (
@@ -68,26 +78,41 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Company Name"
+            label={
+              <span>
+                Company Name <span className="text-red-500">*</span>
+              </span>
+            }
             name="company-name"
             placeholder="Type your company name here"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Entity Ending"
+            label={
+              <span>
+                Entity Ending <span className="text-red-500">*</span>
+              </span>
+            }
             name="entity-ending"
             placeholder="Inc."
+            isRequired
             {...inputProps}
           />
 
           <Select
             className="col-span-12"
             items={companyIndustries}
-            label="Company Industry"
+            label={
+              <span>
+                Company Industry <span className="text-red-500">*</span>
+              </span>
+            }
             name="company-industry"
             placeholder="B2C SaaS"
+            isRequired
             {...selectProps}
           >
             {(companyIndustry) => (
@@ -97,26 +122,41 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Street Name"
+            label={
+              <span>
+                Street Name <span className="text-red-500">*</span>
+              </span>
+            }
             name="street-name"
             placeholder="Geary 2234"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Suite"
+            label={
+              <span>
+                Suite <span className="text-red-500">*</span>
+              </span>
+            }
             name="suite"
             placeholder="#166"
+            isRequired
             {...inputProps}
           />
 
           <Select
             className="col-span-12 md:col-span-4"
             items={states}
-            label="State"
+            label={
+              <span>
+                State <span className="text-red-500">*</span>
+              </span>
+            }
             name="state"
             placeholder="Delaware"
+            isRequired
             {...selectProps}
           >
             {(registrationState) => (
@@ -126,33 +166,53 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-4"
-            label="City"
+            label={
+              <span>
+                City <span className="text-red-500">*</span>
+              </span>
+            }
             name="city"
             placeholder="San Francisco"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-4"
-            label="Zip Code"
+            label={
+              <span>
+                Zip Code <span className="text-red-500">*</span>
+              </span>
+            }
             name="zip-code"
             placeholder="9409"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="EIN"
+            label={
+              <span>
+                EIN <span className="text-red-500">*</span>
+              </span>
+            }
             name="ein"
             placeholder="Type your company EIN here"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Confirm EIN"
+            label={
+              <span>
+                Confirm EIN <span className="text-red-500">*</span>
+              </span>
+            }
             name="confirm-ein"
             placeholder="Confirm your company EIN here"
+            isRequired
             {...inputProps}
           />
         </form>

@@ -88,11 +88,26 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (isSubmitting) return;
+      const form = e.currentTarget;
+      const data = new FormData(form);
+      const requiredFields = [
+        "first-name",
+        "last-name",
+        "email",
+        "phone-number",
+        "company-name",
+        "role",
+        "employee-count",
+      ];
+      const allFilled = requiredFields.every(
+        (name) => String(data.get(name) || "").trim().length > 0,
+      );
+      if (!allFilled) {
+        return;
+      }
       setIsSubmitting(true);
       setSubmitState("loading");
       try {
-        const form = e.currentTarget;
-        const data = new FormData(form);
         const payload = {
           firstName: String(data.get("first-name") || "").trim(),
           lastName: String(data.get("last-name") || "").trim(),
@@ -135,32 +150,51 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
         >
           <Input
             className="col-span-12 md:col-span-6"
-            label="First Name"
+            label={
+              <span>
+                First Name <span className="text-red-500">*</span>
+              </span>
+            }
             name="first-name"
             placeholder="Type your first name here"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Last Name"
+            label={
+              <span>
+                Last Name <span className="text-red-500">*</span>
+              </span>
+            }
             name="last-name"
             placeholder="Type your last name here"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Email"
+            label={
+              <span>
+                Email <span className="text-red-500">*</span>
+              </span>
+            }
             name="email"
             placeholder="john.doe@gmail.com"
             type="email"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Phone Number"
+            label={
+              <span>
+                Phone Number <span className="text-red-500">*</span>
+              </span>
+            }
             name="phone-number"
             placeholder="(555) 555-5555 Ext. 1234"
             type="tel"
@@ -169,28 +203,43 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             value={phone}
             onChange={handlePhoneChange}
             onKeyDown={handlePhoneKeyDown}
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Company Name"
+            label={
+              <span>
+                Company Name <span className="text-red-500">*</span>
+              </span>
+            }
             name="company-name"
             placeholder="Vyral LLC"
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Role"
+            label={
+              <span>
+                Role <span className="text-red-500">*</span>
+              </span>
+            }
             name="role"
             placeholder="Founder, Operations, etc."
+            isRequired
             {...inputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Employee Count"
+            label={
+              <span>
+                Employee Count <span className="text-red-500">*</span>
+              </span>
+            }
             name="employee-count"
             placeholder="e.g., 10"
             type="number"
@@ -198,12 +247,18 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             step={1}
             inputMode="numeric"
             onChange={clampNonNegative}
+            isRequired
             {...inputProps}
           />
 
           <Textarea
             className="col-span-12"
-            label="Additional Notes"
+            label={
+              <span>
+                Additional Notes{" "}
+                <em className="text-default-500">(optional)</em>
+              </span>
+            }
             name="additional-notes"
             placeholder="Anything else you'd like us to know?"
             labelPlacement="outside"

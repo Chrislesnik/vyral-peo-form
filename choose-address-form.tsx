@@ -55,6 +55,7 @@ const ChooseAddressForm = React.forwardRef<HTMLFormElement, ChooseAddressFormPro
             className="col-span-12 mx-0 my-2 px-2 text-left"
             color="primary"
             name="terms-and-privacy"
+            isRequired
             size="md"
           >
             I read and agree with the

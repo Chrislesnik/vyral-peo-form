@@ -89,10 +89,15 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
 
           <Input
             className="col-span-12"
-            label="Email Address"
+            label={
+              <span>
+                Email Address <span className="text-red-500">*</span>
+              </span>
+            }
             name="email"
             placeholder="john.doe@Vyral.com"
             type="email"
+            isRequired
             {...inputProps}
           />
           <Input
@@ -105,6 +110,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
                   maxLength={2}
                   name="card-month"
                   placeholder="MM"
+                  required
                 />
                 <span className="text-default-500 mx-[2px]">/</span>
                 <NumberInput
@@ -113,6 +119,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
                   maxLength={2}
                   name="card-year"
                   placeholder="YY"
+                  required
                 />
                 <NumberInput
                   className="ml-2"
@@ -120,10 +127,15 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
                   maxLength={3}
                   name="card-cvc"
                   placeholder="CVC"
+                  required
                 />
               </div>
             }
-            label="Card number"
+            label={
+              <span>
+                Card number <span className="text-red-500">*</span>
+              </span>
+            }
             minLength={0}
             name="card-number"
             placeholder="Card number"
@@ -133,22 +145,33 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
               </span>
             }
             type="number"
+            isRequired
             {...numberInputProps}
           />
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Entity Ending"
+            label={
+              <span>
+                Entity Ending <span className="text-red-500">*</span>
+              </span>
+            }
             name="entity-name"
             placeholder="Inc."
+            isRequired
             {...inputProps}
           />
 
           <Select
             className="col-span-12"
-            label="Cardholder name"
+            label={
+              <span>
+                Cardholder name <span className="text-red-500">*</span>
+              </span>
+            }
             name="cardholder-name"
             placeholder="John Doe"
+            isRequired
             {...selectProps}
           >
             <SelectItem key="john-doe">John Doe</SelectItem>
@@ -162,10 +185,15 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
             inputProps={{
               classNames: inputProps.classNames,
             }}
-            label="Country"
+            label={
+              <span>
+                Country <span className="text-red-500">*</span>
+              </span>
+            }
             labelPlacement="outside"
             name="country"
             placeholder="Select country"
+            isRequired
             showScrollIndicators={false}
           >
             {(item: countryProp) => (
@@ -186,18 +214,28 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
 
           <Input
             className="col-span-12 md:col-span-6"
-            label="Zip Code"
+            label={
+              <span>
+                Zip Code <span className="text-red-500">*</span>
+              </span>
+            }
             name="zip-code"
             placeholder="Zip Code"
+            isRequired
             {...inputProps}
           />
 
           <Select
             className="col-span-12 md:col-span-6"
             items={states}
-            label="State"
+            label={
+              <span>
+                State <span className="text-red-500">*</span>
+              </span>
+            }
             name="state"
             placeholder="State"
+            isRequired
             {...selectProps}
           >
             {(registrationState) => (
@@ -210,6 +248,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
             className="col-span-12 m-0 p-2 text-left"
             color="primary"
             name="terms-and-privacy"
+            isRequired
             size="md"
           >
             I read and agree with the
