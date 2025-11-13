@@ -33,6 +33,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
       classNames: {
         label:
           "text-small font-medium text-default-700 group-data-[filled-within=true]:text-default-700",
+        errorMessage: "text-left",
       },
     };
 
@@ -42,6 +43,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
         label:
           "text-small font-medium text-default-700 group-data-[filled-within=true]:text-default-700",
         input: appearanceNoneClassName,
+        errorMessage: "text-left",
       },
     };
 
@@ -49,6 +51,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
       labelPlacement: "outside",
       classNames: {
         label: "text-small font-medium text-default-700 group-data-[filled=true]:text-default-700",
+        errorMessage: "text-left",
       },
     };
 

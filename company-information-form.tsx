@@ -19,6 +19,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
       classNames: {
         label:
           "text-small font-medium text-default-700 group-data-[filled-within=true]:text-default-700",
+        errorMessage: "text-left",
       },
     };
 
@@ -26,6 +27,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
       labelPlacement: "outside",
       classNames: {
         label: "text-small font-medium text-default-700 group-data-[filled=true]:text-default-700",
+        errorMessage: "text-left",
       },
     };
 

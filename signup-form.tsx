@@ -22,6 +22,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
       classNames: {
         label:
           "text-small font-medium text-default-700 group-data-[filled-within=true]:text-default-700",
+        errorMessage: "text-left",
       },
     };
 
