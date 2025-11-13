@@ -45,11 +45,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
           <Select
             className="col-span-12 md:col-span-6"
             items={companyTypes}
-            label={
-              <span>
-                Company Type <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Company Type"
             name="company-type"
             placeholder="C Corporation"
             isRequired
@@ -61,11 +57,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
           <Select
             className="col-span-12 md:col-span-6"
             items={states}
-            label={
-              <span>
-                Registration State <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Registration State"
             name="registration-state"
             placeholder="Delaware"
             isRequired
@@ -78,11 +70,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Company Name <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Company Name"
             name="company-name"
             placeholder="Type your company name here"
             isRequired
@@ -91,11 +79,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Entity Ending <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Entity Ending"
             name="entity-ending"
             placeholder="Inc."
             isRequired
@@ -105,11 +89,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
           <Select
             className="col-span-12"
             items={companyIndustries}
-            label={
-              <span>
-                Company Industry <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Company Industry"
             name="company-industry"
             placeholder="B2C SaaS"
             isRequired
@@ -122,11 +102,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Street Name <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Street Name"
             name="street-name"
             placeholder="Geary 2234"
             isRequired
@@ -135,11 +111,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Suite <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Suite"
             name="suite"
             placeholder="#166"
             isRequired
@@ -149,11 +121,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
           <Select
             className="col-span-12 md:col-span-4"
             items={states}
-            label={
-              <span>
-                State <span className="text-red-500">*</span>
-              </span>
-            }
+            label="State"
             name="state"
             placeholder="Delaware"
             isRequired
@@ -166,11 +134,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-4"
-            label={
-              <span>
-                City <span className="text-red-500">*</span>
-              </span>
-            }
+            label="City"
             name="city"
             placeholder="San Francisco"
             isRequired
@@ -179,11 +143,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-4"
-            label={
-              <span>
-                Zip Code <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Zip Code"
             name="zip-code"
             placeholder="9409"
             isRequired
@@ -192,11 +152,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                EIN <span className="text-red-500">*</span>
-              </span>
-            }
+            label="EIN"
             name="ein"
             placeholder="Type your company EIN here"
             isRequired
@@ -205,11 +161,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Confirm EIN <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Confirm EIN"
             name="confirm-ein"
             placeholder="Confirm your company EIN here"
             isRequired

@@ -15,6 +15,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
     const [phone, setPhone] = React.useState("");
     const [isSubmitting, setIsSubmitting] = React.useState(false);
     const [submitState, setSubmitState] = React.useState<"idle" | "loading" | "success">("idle");
+    const [isToastOpen, setIsToastOpen] = React.useState(false);
 
     const inputProps: Pick<InputProps, "labelPlacement" | "classNames"> = {
       labelPlacement: "outside",
@@ -125,6 +126,8 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
           body: JSON.stringify(payload),
         });
         setSubmitState("success");
+        setIsToastOpen(true);
+        window.setTimeout(() => setIsToastOpen(false), 4000);
       } catch (_err) {
         // intentionally silent
         setSubmitState("idle");
@@ -150,11 +153,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
         >
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                First Name <span className="text-red-500">*</span>
-              </span>
-            }
+            label="First Name"
             name="first-name"
             placeholder="Type your first name here"
             isRequired
@@ -163,11 +162,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Last Name <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Last Name"
             name="last-name"
             placeholder="Type your last name here"
             isRequired
@@ -176,11 +171,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Email <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Email"
             name="email"
             placeholder="john.doe@gmail.com"
             type="email"
@@ -190,11 +181,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Phone Number <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Phone Number"
             name="phone-number"
             placeholder="(555) 555-5555 Ext. 1234"
             type="tel"
@@ -209,11 +196,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Company Name <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Company Name"
             name="company-name"
             placeholder="Vyral LLC"
             isRequired
@@ -222,11 +205,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Role <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Role"
             name="role"
             placeholder="Founder, Operations, etc."
             isRequired
@@ -235,11 +214,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Employee Count <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Employee Count"
             name="employee-count"
             placeholder="e.g., 10"
             type="number"
@@ -332,6 +307,46 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             </ButtonWithBorderGradient>
           </div>
         </form>
+        <LazyMotion features={domAnimation}>
+          <AnimatePresence>
+            {isToastOpen && (
+              <m.div
+                key="success-toast"
+                initial={{opacity: 0, y: 12}}
+                animate={{opacity: 1, y: 0}}
+                exit={{opacity: 0, y: 12}}
+                transition={{duration: 0.2}}
+                role="status"
+                aria-live="polite"
+                className="fixed bottom-4 right-4 z-50 max-w-sm rounded-medium border border-default-200 bg-content1 px-4 py-3 text-default-700 shadow-large"
+              >
+                <div className="flex items-start gap-3">
+                  <m.svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    className="mt-0.5 text-success"
+                  >
+                    <path
+                      d="M5 13l4 4L19 7"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </m.svg>
+                  <div className="flex-1">
+                    <div className="font-medium">Thank you!</div>
+                    <div className="text-small">
+                      Your form was submitted. We’ll contact you any moment.
+                    </div>
+                  </div>
+                </div>
+              </m.div>
+            )}
+          </AnimatePresence>
+        </LazyMotion>
       </>
     );
   },

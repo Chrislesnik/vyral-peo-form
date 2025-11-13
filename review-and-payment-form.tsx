@@ -89,11 +89,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
 
           <Input
             className="col-span-12"
-            label={
-              <span>
-                Email Address <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Email Address"
             name="email"
             placeholder="john.doe@Vyral.com"
             type="email"
@@ -131,11 +127,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
                 />
               </div>
             }
-            label={
-              <span>
-                Card number <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Card number"
             minLength={0}
             name="card-number"
             placeholder="Card number"
@@ -151,11 +143,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Entity Ending <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Entity Ending"
             name="entity-name"
             placeholder="Inc."
             isRequired
@@ -164,11 +152,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
 
           <Select
             className="col-span-12"
-            label={
-              <span>
-                Cardholder name <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Cardholder name"
             name="cardholder-name"
             placeholder="John Doe"
             isRequired
@@ -185,11 +169,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
             inputProps={{
               classNames: inputProps.classNames,
             }}
-            label={
-              <span>
-                Country <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Country"
             labelPlacement="outside"
             name="country"
             placeholder="Select country"
@@ -214,11 +194,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
 
           <Input
             className="col-span-12 md:col-span-6"
-            label={
-              <span>
-                Zip Code <span className="text-red-500">*</span>
-              </span>
-            }
+            label="Zip Code"
             name="zip-code"
             placeholder="Zip Code"
             isRequired
@@ -228,11 +204,7 @@ const ReviewAndPaymentForm = React.forwardRef<HTMLFormElement, ReviewAndPaymentF
           <Select
             className="col-span-12 md:col-span-6"
             items={states}
-            label={
-              <span>
-                State <span className="text-red-500">*</span>
-              </span>
-            }
+            label="State"
             name="state"
             placeholder="State"
             isRequired
